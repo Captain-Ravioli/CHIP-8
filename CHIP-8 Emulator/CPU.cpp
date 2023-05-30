@@ -28,9 +28,9 @@ void CPU::cycle(SDL_Event event)
 {
 	for (int i = 0; i < speed; i++)
 	{
-		int recentKey = keyboard->cycle(event);
 		if (paused)
 		{
+			int recentKey = keyboard->cycle(event);
 			if (recentKey != -1)
 			{
 				registers[heldX] = recentKey;

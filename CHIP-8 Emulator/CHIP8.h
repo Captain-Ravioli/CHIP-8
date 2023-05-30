@@ -15,7 +15,7 @@ public:
 	SDL_Window* window;
 	SDL_Renderer* renderer;
 
-	Renderer();
+	Renderer(const char* romName);
 	bool setPixel(int x, int y);
 	void render();
 	void clearScreen();
@@ -92,7 +92,7 @@ private:
 	int heldX = -1;
 
 	bool paused = false;
-	const int speed = 10;
+	const int speed = 50;
 
 	void loadSpritesToMemory();
 	void loadProgramToMemory(uint8_t program[]);

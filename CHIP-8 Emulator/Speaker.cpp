@@ -4,11 +4,8 @@
 
 Speaker::Speaker()
 {
-	if (Mix_Init(MIX_INIT_MP3) == 0)
-		printf("Failed to Mix_Init: %s", Mix_GetError());
-
 	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024);
-	sound = Mix_LoadWAV("awesomeness.mp3");
+	sound = Mix_LoadWAV("awesomeness.wav");
 	if (!sound)
 		printf("Failed to set sound: %s", Mix_GetError());
 }

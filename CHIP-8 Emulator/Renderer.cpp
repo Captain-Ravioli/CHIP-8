@@ -4,12 +4,14 @@
 #include <math.h>
 #include "CHIP8.h"
 
-Renderer::Renderer()
+Renderer::Renderer(const char* romName)
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
 		printf("Could not SDL_Init: %s\n", SDL_GetError());
-	window = SDL_CreateWindow("CHIP-8", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, cols * scale, rows * scale, SDL_WindowFlags::SDL_WINDOW_ALLOW_HIGHDPI);
-	renderer = SDL_CreateRenderer(window, 0, 0);
+	string windowName = romName;
+	windowName = "CHIP-8 " + windowName;
+	window = SDL_CreateWindow(windowName.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, cols * scale, rows * scale, SDL_WINDOW_ALLOW_HIGHDPI);
+	renderer = SDL_CreateRenderer(window, 0, SDL_RENDERER_PRESENTVSYNC);
 }
 
 void Renderer::render()
