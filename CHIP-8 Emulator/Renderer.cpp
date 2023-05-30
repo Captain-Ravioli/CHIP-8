@@ -6,15 +6,6 @@
 
 Renderer::Renderer()
 {
-	this->scale = 10;
-	if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
-		printf("Could not SDL_Init: %s\n", SDL_GetError());
-	window = SDL_CreateWindow("CHIP-8", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, cols * scale, rows * scale, SDL_WindowFlags::SDL_WINDOW_ALLOW_HIGHDPI);
-	renderer = SDL_CreateRenderer(window, 0, 0);
-}
-Renderer::Renderer(float scale)
-{
-	this->scale = scale;
 	if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
 		printf("Could not SDL_Init: %s\n", SDL_GetError());
 	window = SDL_CreateWindow("CHIP-8", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, cols * scale, rows * scale, SDL_WindowFlags::SDL_WINDOW_ALLOW_HIGHDPI);

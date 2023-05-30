@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include <set>
+#include <unordered_set>
 #include <string>
 #include <SDL.h>
 #include <SDL_mixer.h>
@@ -16,15 +16,14 @@ public:
 	SDL_Renderer* renderer;
 
 	Renderer();
-	Renderer(float scale);
 	bool setPixel(int x, int y);
 	void render();
 	void clearScreen();
 	void quit();
 
 private:
-	int cols = 64, rows = 32;
-	int scale = 10;
+	const int cols = 64, rows = 32;
+	const int scale = 3;
 
 	int display[2048] = { };
 
@@ -44,7 +43,7 @@ public:
 	bool isKeyPressed(uint8_t key);
 	int getCode(uint8_t key);
 private:
-	set<uint8_t> heldKeys = { };
+	unordered_set<uint8_t> heldKeys = { };
 };
 
 #endif // !KEYBOARD_H
@@ -93,7 +92,7 @@ private:
 	int heldX = -1;
 
 	bool paused = false;
-	int speed = 10;
+	const int speed = 10;
 
 	void loadSpritesToMemory();
 	void loadProgramToMemory(uint8_t program[]);

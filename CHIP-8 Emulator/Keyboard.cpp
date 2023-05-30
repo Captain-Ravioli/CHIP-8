@@ -18,7 +18,7 @@ int Keyboard::cycle(SDL_Event event)
 		uint8_t result = key;
 		if (key != -1 && !isKeyPressed(result))
 			heldKeys.insert(result);
-		return ((result << 4) & 0xF0) >> 4;
+		return result;
 	}
 	else if (event.type == SDL_KEYUP)
 	{
