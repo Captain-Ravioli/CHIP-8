@@ -93,7 +93,7 @@ private:
 	int heldX = -1;
 
 	bool paused = false;
-	int speed = 1;
+	int speed = 10;
 
 	void loadSpritesToMemory();
 	void loadProgramToMemory(uint8_t program[]);

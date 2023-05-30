@@ -20,6 +20,8 @@ CPU::CPU(Renderer* renderer, Keyboard* keyboard, Speaker* speaker)
 	this->renderer = renderer;
 	this->keyboard = keyboard;
 	this->speaker = speaker;
+
+	loadSpritesToMemory();
 }
 
 void CPU::cycle(SDL_Event event)

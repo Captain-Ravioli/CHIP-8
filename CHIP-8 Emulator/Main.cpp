@@ -10,7 +10,8 @@ int main(int argumentCount, char * arguments[])
 	Keyboard* keyboard = new Keyboard();
 	Speaker* speaker = new Speaker();
 	CPU* cpu = new CPU(renderer, keyboard, speaker);
-	(*cpu).loadRom("CONNECT4");
+
+	(*cpu).loadRom("BLITZ");
 
 	int fps = 100;
 	int deltaTime = 1000 / fps;
