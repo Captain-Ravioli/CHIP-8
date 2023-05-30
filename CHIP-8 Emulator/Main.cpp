@@ -11,7 +11,7 @@ int main(int argumentCount, char * arguments[])
 	Speaker* speaker = new Speaker();
 	CPU* cpu = new CPU(renderer, keyboard, speaker);
 
-	(*cpu).loadRom("BLITZ");
+	(*cpu).loadRom("CONNECT4");
 
 	int fps = 100;
 	int deltaTime = 1000 / fps;
