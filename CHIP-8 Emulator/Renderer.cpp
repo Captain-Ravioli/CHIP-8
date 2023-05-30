@@ -57,16 +57,8 @@ bool Renderer::setPixel(int x, int y)
  
 void Renderer::drawPixel(int xPos, int yPos, bool white)
 {
-	for (int y = 0; y < scale; y++)
-	{
-		for (int x = 0; x < scale; x++)
-		{
-			if (white)
-				SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-			else
-				SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 
-			SDL_RenderDrawPoint(renderer, xPos * scale + x, yPos * scale+ y);
-		}
-	}
+	SDL_Rect rect = { xPos * scale, yPos * scale, scale, scale };
+	SDL_RenderFillRect(renderer, &rect);
 }

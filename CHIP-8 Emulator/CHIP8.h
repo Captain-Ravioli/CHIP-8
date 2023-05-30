@@ -23,7 +23,7 @@ public:
 
 private:
 	const int cols = 64, rows = 32;
-	const int scale = 3;
+	const int scale = 30;
 
 	int display[2048] = { };
 
