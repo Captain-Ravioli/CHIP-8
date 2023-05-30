@@ -11,7 +11,7 @@ int main(int argumentCount, char * arguments[])
 	Speaker* speaker = new Speaker();
 	CPU* cpu = new CPU(renderer, keyboard, speaker);
 
-	(*cpu).loadRom("CONNECT4");
+	cpu->.loadRom("CONNECT4");
 
 	int fps = 100;
 	int deltaTime = 1000 / fps;
@@ -24,12 +24,12 @@ int main(int argumentCount, char * arguments[])
 		{
 			if (event.type == SDL_QUIT)
 			{
-				(*renderer).quit();
+				renderer->quit();
 				break;
 			}
 		}
 
-		(*cpu).cycle(event);
+		cpu->cycle(event);
 	}
 	return EXIT_SUCCESS;
 }

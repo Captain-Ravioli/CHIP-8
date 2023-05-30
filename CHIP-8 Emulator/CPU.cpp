@@ -28,7 +28,7 @@ void CPU::cycle(SDL_Event event)
 {
 	for (int i = 0; i < speed; i++)
 	{
-		int recentKey = (*keyboard).cycle(event);
+		int recentKey = keyboard->cycle(event);
 		if (paused)
 		{
 			if (recentKey != -1)
@@ -49,7 +49,7 @@ void CPU::cycle(SDL_Event event)
 		updateTimers();
 
 	playSound();
-	(*renderer).render();
+	renderer->render();
 }
 
 void CPU::loadSpritesToMemory()
@@ -120,7 +120,7 @@ void CPU::executeInstruction(uint16_t opcode)
 		switch (opcode)
 		{
 		case 0x00E0:
-			(*renderer).clearScreen();
+			renderer->clearScreen();
 			break;
 		case 0x00EE:
 			if (!stack.empty())
@@ -221,7 +221,7 @@ void CPU::executeInstruction(uint16_t opcode)
 			uint8_t sprite = memory[memAddress + row];
 			for (int col = 0; col < 8 /* each sprite is 8 pixels wide */; col++)
 			{
-				if ((sprite & 0x80) > 0 && (*renderer).setPixel(registers[x] + col, registers[y] + row))
+				if ((sprite & 0x80) > 0 && renderer->setPixel(registers[x] + col, registers[y] + row))
 					registers[0xF] = 1;
 				sprite <<= 1;
 			}
@@ -231,11 +231,11 @@ void CPU::executeInstruction(uint16_t opcode)
 		switch (opcode & 0xFF)
 		{
 		case 0x9E:
-			if ((*keyboard).isKeyPressed(registers[x]))
+			if (keyboard->isKeyPressed(registers[x]))
 				programCounter += 2;
 			break;
 		case 0xA1:
-			if (!(*keyboard).isKeyPressed(registers[x]))
+			if (!keyboard->isKeyPressed(registers[x]))
 				programCounter += 2;
 			break;
 		}
@@ -296,9 +296,9 @@ void CPU::updateTimers()
 void CPU::playSound()
 {
 	if (soundTimer > 0)
-		(*speaker).play();
+		speaker->play();
 	else
-		(*speaker).stop();
+		speaker->stop();
 }
 
 vector<unsigned char> CPU::readFile(const char* filename)
@@ -311,7 +311,7 @@ vector<unsigned char> CPU::readFile(const char* filename)
 	file.seekg(0, std::ios::beg);
 
 	std::vector<unsigned char> fileData(fileSize);
-	file.read((char*)&fileData[0], fileSize);
+	file.read(fileData.data(), fileSize);
 
 	return fileData;
 }
