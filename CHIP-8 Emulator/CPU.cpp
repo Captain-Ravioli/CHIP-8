@@ -311,7 +311,7 @@ vector<unsigned char> CPU::readFile(const char* filename)
 	file.seekg(0, std::ios::beg);
 
 	std::vector<unsigned char> fileData(fileSize);
-	file.read(fileData.data(), fileSize);
+	file.read((char*)&fileData[0], fileSize);
 
 	return fileData;
 }
