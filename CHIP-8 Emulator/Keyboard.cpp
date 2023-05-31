@@ -1,5 +1,4 @@
 #include <SDL.h>
-#include <stdlib.h>
 #include <cstdlib>
 #include <iostream>
 #include <algorithm>

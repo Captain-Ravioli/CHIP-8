@@ -1,8 +1,7 @@
 #include <SDL.h>
-#include <cstdlib>
 #include <iostream>
 #include "CHIP8.h"
-
+using namespace std;
 
 int main(int argumentCount, char * arguments[])
 {
@@ -40,7 +39,7 @@ int main(int argumentCount, char * arguments[])
 
 		if (currentDelta + 1 > deltaTime)
 		{
-			std::cout << "fps: " << 1000 / currentDelta << std::endl;
+			cout << 1000 / currentDelta << " fps\n";
 			ticks = newTicks;
 
 			cpu->cycle(event);
