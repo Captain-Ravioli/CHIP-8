@@ -92,7 +92,7 @@ private:
 	int heldX = -1;
 
 	bool paused = false;
-	const int speed = 50;
+	const int speed = 10;
 
 	void loadSpritesToMemory();
 	void loadProgramToMemory(uint8_t program[]);

@@ -6,7 +6,7 @@
 
 int main(int argumentCount, char * arguments[])
 {
-	const char* romName = "INVADERS";
+	const char* romName = "BRIX";
 	Renderer* renderer = new Renderer(romName);
 	Keyboard* keyboard = new Keyboard();
 	Speaker* speaker = new Speaker();
@@ -14,7 +14,7 @@ int main(int argumentCount, char * arguments[])
 
 	cpu->loadRom(romName);
 
-	int fps = 100;
+	int fps = 60;
 	float deltaTime = 1000.0f / fps;
 
 	SDL_Event event;
