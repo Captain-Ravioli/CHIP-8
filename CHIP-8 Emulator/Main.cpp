@@ -1,4 +1,5 @@
 #include <SDL.h>
+#include <cstdlib>
 #include <iostream>
 #include "CHIP8.h"
 using namespace std;
